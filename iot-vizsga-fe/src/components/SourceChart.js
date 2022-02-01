@@ -1,4 +1,3 @@
-import { rgbToHex } from '@mui/material';
 import React, { useState, useEffect } from 'react';
 import MyLineChart from './MyLineChart';
 
@@ -90,9 +89,7 @@ const SourceChart = (props) => {
 	}, [temperatures.length]);
 
 	return (
-		<div>
-			<MyLineChart data={chartData} labels={chartLabels} title={props.title} />
-		</div>
+		<MyLineChart data={chartData} labels={chartLabels} title={props.title} />
 	);
 };
 

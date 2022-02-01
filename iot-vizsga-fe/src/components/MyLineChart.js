@@ -21,6 +21,13 @@ ChartJS.register(
 	Legend
 );
 
+const styles = {
+	myChart: {
+		width: 'inherit',
+		height: 'inherit',
+	},
+};
+
 const getRandomInt = (max) =>
 	Math.floor((Math.random() * max * -1) ^ Math.floor(Math.random() * 2));
 
@@ -62,7 +69,15 @@ const MyLineChart = (props) => {
 			  ],
 	};
 
-	return <Line options={options} data={data} height={100} width={200} />;
+	return (
+		<Line
+			style={styles.myChart}
+			options={options}
+			data={data}
+			height={100}
+			width={200}
+		/>
+	);
 };
 
 export default MyLineChart;
