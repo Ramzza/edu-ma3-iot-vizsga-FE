@@ -12,9 +12,24 @@ const App = () => {
 	return (
 		<div>
 			<ActionPanel />
-			<SourceChart dataSource={TemperatureDataService} />
-			<SourceChart dataSource={LuminosityDataService} />
-			<SourceChart dataSource={HumidityDataService} />
+			<SourceChart
+				dataSource={TemperatureDataService}
+				label={'Temperature'}
+				lineColor={'red'}
+				title={'Temperature Chart'}
+			/>
+			<SourceChart
+				dataSource={LuminosityDataService}
+				label={'Luminosity'}
+				lineColor={'yellow'}
+				title={'Luminosity Chart'}
+			/>
+			<SourceChart
+				dataSource={HumidityDataService}
+				label={'Humidity'}
+				lineColor={'blue'}
+				title={'Luminosity Chart'}
+			/>
 			<ActionHistory />
 		</div>
 	);

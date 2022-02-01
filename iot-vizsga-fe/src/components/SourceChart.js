@@ -1,3 +1,4 @@
+import { rgbToHex } from '@mui/material';
 import React, { useState, useEffect } from 'react';
 import MyLineChart from './MyLineChart';
 
@@ -5,6 +6,37 @@ const SourceChart = (props) => {
 	const [temperatures, setTemperatures] = useState([]);
 	const [chartData, setChartData] = useState([]);
 	const [chartLabels, setChartLabels] = useState([]);
+
+	const determineChartColor = (colorString) => {
+		let result = '15, 15, 15';
+
+		switch (colorString) {
+			case 'red': {
+				result = '255, 99, 132';
+				break;
+			}
+			case 'yellow': {
+				result = '252, 186, 3';
+				break;
+			}
+			case 'blue': {
+				result = '13, 5, 240';
+				break;
+			}
+			case 'green': {
+				result = '8, 138, 32';
+				break;
+			}
+		}
+
+		return result;
+	};
+
+	const getColorForLine = (colorString) => 'rgba(' + colorString + ', 0.5)';
+
+	const getColorForLineBorder = (colorString) => 'rgb(' + colorString + ')';
+
+	const chartLabel = props.label ? props.label : 'DefaultLabel';
 
 	const prepareChartData = () => {
 		const labels = [];
@@ -19,10 +51,12 @@ const SourceChart = (props) => {
 
 		setChartData([
 			{
-				label: 'Temperatures',
+				label: chartLabel,
 				data: currentChartData,
-				borderColor: 'rgb(255, 99, 132)',
-				backgroundColor: 'rgba(255, 99, 132, 0.5)',
+				borderColor: getColorForLineBorder(
+					determineChartColor(props.lineColor)
+				),
+				backgroundColor: getColorForLine(determineChartColor(props.lineColor)),
 			},
 		]);
 
@@ -57,7 +91,7 @@ const SourceChart = (props) => {
 
 	return (
 		<div>
-			<MyLineChart data={chartData} labels={chartLabels} />
+			<MyLineChart data={chartData} labels={chartLabels} title={props.title} />
 		</div>
 	);
 };

@@ -37,7 +37,7 @@ const MyLineChart = (props) => {
 			// },
 			title: {
 				display: true,
-				text: props.text ? props.text : 'Default Line Chart',
+				text: props.title ? props.title : 'Default Line Chart',
 			},
 		},
 	};
