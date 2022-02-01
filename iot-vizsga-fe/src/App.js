@@ -55,7 +55,7 @@ const App = () => {
 					</Paper>
 				</Grid>
 
-				<Grid item xs={4}>
+				<Grid item xs={8}>
 					<ActionHistory />
 				</Grid>
 			</Grid>
