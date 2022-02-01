@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Button from '@mui/material/Button';
+
 import RootService from '../services/rootService';
 
 const ActionPanel = () => {
@@ -35,6 +37,21 @@ const ActionPanel = () => {
 		}
 	};
 
+	const changeRotateStepper = () => {
+		const cmd = stepperWorking === 'ON' ? 'OFF' : 'ON';
+		RootService.setStepperWorking(cmd);
+	};
+
+	const changeStepperDirection = () => {
+		const cmd = stepperDirection === 'RIGHT' ? 'LEFT' : 'RIGHT';
+		RootService.setStepperDirection(cmd);
+	};
+
+	const changeIrLedSwitch = () => {
+		const cmd = irLedSwitch === 'ON' ? 'OFF' : 'ON';
+		RootService.setIrLedSwitch(cmd);
+	};
+
 	RootService.getSwitchState().on('value', onSwitchChange);
 	RootService.getStepperWorking().on('value', onStepperWorkingChange);
 	RootService.getStepperDirection().on('value', onStepperDirectionChange);
@@ -43,9 +60,24 @@ const ActionPanel = () => {
 	return (
 		<div>
 			<div>Switch_ON: {switchState}</div>
-			<div>ROTATE_STEPPER: {stepperWorking}</div>
-			<div>STEPPER_DIRECTION: {stepperDirection}</div>
-			<div>IR_LED_SWITCH: {irLedSwitch}</div>
+			<div>
+				ROTATE_STEPPER: {stepperWorking}{' '}
+				<Button variant="contained" onClick={changeRotateStepper}>
+					change
+				</Button>
+			</div>
+			<div>
+				STEPPER_DIRECTION: {stepperDirection}{' '}
+				<Button variant="contained" onClick={changeStepperDirection}>
+					change
+				</Button>
+			</div>
+			<div>
+				IR_LED_SWITCH: {irLedSwitch}{' '}
+				<Button variant="contained" onClick={changeIrLedSwitch}>
+					change
+				</Button>
+			</div>
 		</div>
 	);
 };
