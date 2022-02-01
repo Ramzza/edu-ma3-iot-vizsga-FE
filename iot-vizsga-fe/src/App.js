@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './App.css';
-import StepperSwitch from './components/StepperSwitch';
+import ActionPanel from './components/ActionPanel';
 import SourceChart from './components/SourceChart';
 import TemperatureDataService from './services/temperatureService';
 import LuminosityDataService from './services/luminosityService';
@@ -10,7 +10,7 @@ import HumidityDataService from './services/humidityService';
 const App = () => {
 	return (
 		<div>
-			<StepperSwitch />
+			<ActionPanel />
 			<SourceChart dataSource={TemperatureDataService} />
 			<SourceChart dataSource={LuminosityDataService} />
 			<SourceChart dataSource={HumidityDataService} />
