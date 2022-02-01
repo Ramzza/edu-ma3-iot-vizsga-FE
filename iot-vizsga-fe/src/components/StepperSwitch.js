@@ -6,7 +6,7 @@ const StepperSwitch = () => {
 
 	const onDataChange = (item) => {
 		const sw = item.val();
-		if (sw != switchState) {
+		if (sw !== switchState) {
 			setSwitchState(sw);
 		}
 	};

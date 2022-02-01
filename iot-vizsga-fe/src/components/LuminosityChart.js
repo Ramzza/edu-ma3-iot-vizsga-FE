@@ -22,11 +22,11 @@ ChartJS.register(
 );
 
 export const options = {
-	responsive: true,
+	// responsive: true,
 	plugins: {
-		legend: {
-			position: 'top',
-		},
+		// legend: {
+		// 	position: 'top',
+		// },
 		title: {
 			display: true,
 			text: 'Chart.js Line Chart',
@@ -58,7 +58,7 @@ export const data = {
 };
 
 const LuminosityChart = () => {
-	return <Line options={options} data={data} />;
+	return <Line options={options} data={data} height={100} width={200} />;
 };
 
 export default LuminosityChart;
