@@ -68,9 +68,10 @@ const SourceChart = (props) => {
 		items.forEach((item) => {
 			let key = item.key;
 			let data = item.val();
+			const date = new Date(data.time);
 			temperaturesNew.push({
 				key: key,
-				title: data.time,
+				title: date.toLocaleString(),
 				description: data.value,
 			});
 		});
