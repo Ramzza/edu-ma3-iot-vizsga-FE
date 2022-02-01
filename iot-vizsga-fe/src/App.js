@@ -1,5 +1,5 @@
 import React from 'react';
-import { Paper } from '@mui/material';
+import { Paper, Grid } from '@mui/material';
 
 import './App.css';
 import ActionPanel from './components/ActionPanel';
@@ -13,40 +13,52 @@ const styles = {
 	myPaper: {
 		width: '600px',
 		height: '300px',
-		margin: '40px',
+		margin: '10px',
 	},
 };
 
 const App = () => {
 	return (
 		<div>
-			<ActionPanel />
+			<Grid container spacing={2}>
+				<Grid item xs={12}>
+					<ActionPanel />
+				</Grid>
+				<Grid item xs={4}>
+					<Paper style={styles.myPaper} elevation={3}>
+						<SourceChart
+							dataSource={TemperatureDataService}
+							label={'Temperature'}
+							lineColor={'red'}
+							title={'Temperature Chart'}
+						/>
+					</Paper>
+				</Grid>
+				<Grid item xs={4}>
+					<Paper style={styles.myPaper} elevation={3}>
+						<SourceChart
+							dataSource={LuminosityDataService}
+							label={'Luminosity'}
+							lineColor={'yellow'}
+							title={'Luminosity Chart'}
+						/>
+					</Paper>
+				</Grid>
+				<Grid item xs={4}>
+					<Paper style={styles.myPaper} elevation={3}>
+						<SourceChart
+							dataSource={HumidityDataService}
+							label={'Humidity'}
+							lineColor={'blue'}
+							title={'Humidity Chart'}
+						/>
+					</Paper>
+				</Grid>
 
-			<Paper style={styles.myPaper} elevation={3}>
-				<SourceChart
-					dataSource={TemperatureDataService}
-					label={'Temperature'}
-					lineColor={'red'}
-					title={'Temperature Chart'}
-				/>
-			</Paper>
-			<Paper style={styles.myPaper} elevation={3}>
-				<SourceChart
-					dataSource={LuminosityDataService}
-					label={'Luminosity'}
-					lineColor={'yellow'}
-					title={'Luminosity Chart'}
-				/>
-			</Paper>
-			<Paper style={styles.myPaper} elevation={3}>
-				<SourceChart
-					dataSource={HumidityDataService}
-					label={'Humidity'}
-					lineColor={'blue'}
-					title={'Luminosity Chart'}
-				/>
-			</Paper>
-			<ActionHistory />
+				<Grid item xs={4}>
+					<ActionHistory />
+				</Grid>
+			</Grid>
 		</div>
 	);
 };
