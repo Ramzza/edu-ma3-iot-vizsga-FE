@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Button from '@mui/material/Button';
+import { Grid, Button } from '@mui/material';
 
 import RootService from '../services/rootService';
 
@@ -59,25 +59,50 @@ const ActionPanel = () => {
 
 	return (
 		<div>
-			<div>Switch_ON: {switchState}</div>
-			<div>
-				ROTATE_STEPPER: {stepperWorking}{' '}
-				<Button variant="contained" onClick={changeRotateStepper}>
-					change
-				</Button>
-			</div>
-			<div>
-				STEPPER_DIRECTION: {stepperDirection}{' '}
-				<Button variant="contained" onClick={changeStepperDirection}>
-					change
-				</Button>
-			</div>
-			<div>
-				IR_LED_SWITCH: {irLedSwitch}{' '}
-				<Button variant="contained" onClick={changeIrLedSwitch}>
-					change
-				</Button>
-			</div>
+			<Grid container spacing={2}>
+				<Grid item xs={2}>
+					Switch_ON:
+				</Grid>
+				<Grid item xs={10}>
+					{switchState}
+				</Grid>
+
+				<Grid item xs={2}>
+					ROTATE_STEPPER:
+				</Grid>
+				<Grid item xs={1}>
+					{stepperWorking}
+				</Grid>
+				<Grid item xs={9}>
+					<Button variant="contained" onClick={changeRotateStepper}>
+						change
+					</Button>
+				</Grid>
+
+				<Grid item xs={2}>
+					STEPPER_DIRECTION:
+				</Grid>
+				<Grid item xs={1}>
+					{stepperDirection}
+				</Grid>
+				<Grid item xs={9}>
+					<Button variant="contained" onClick={changeStepperDirection}>
+						change
+					</Button>
+				</Grid>
+
+				<Grid item xs={2}>
+					IR_LED_SWITCH:
+				</Grid>
+				<Grid item xs={1}>
+					{irLedSwitch}
+				</Grid>
+				<Grid item xs={9}>
+					<Button variant="contained" onClick={changeIrLedSwitch}>
+						change
+					</Button>
+				</Grid>
+			</Grid>
 		</div>
 	);
 };
