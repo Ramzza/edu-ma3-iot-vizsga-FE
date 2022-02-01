@@ -2,18 +2,18 @@ import React from 'react';
 
 import './App.css';
 import StepperSwitch from './components/StepperSwitch';
-import LuminosityChart from './components/LuminosityChart';
-import TemperatureChart from './components/TemperatureChart';
 import SourceChart from './components/SourceChart';
-import TutorialDataService from './services/dataService';
+import TemperatureDataService from './services/temperatureService';
+import LuminosityDataService from './services/luminosityService';
+import HumidityDataService from './services/humidityService';
 
 const App = () => {
 	return (
 		<div>
 			<StepperSwitch />
-			<LuminosityChart />
-			<TemperatureChart />
-			<SourceChart dataSource={TutorialDataService} />
+			<SourceChart dataSource={TemperatureDataService} />
+			<SourceChart dataSource={LuminosityDataService} />
+			<SourceChart dataSource={HumidityDataService} />
 		</div>
 	);
 };

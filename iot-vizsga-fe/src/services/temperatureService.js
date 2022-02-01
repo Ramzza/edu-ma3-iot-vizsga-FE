@@ -2,7 +2,7 @@ import firebase from '../firebase';
 
 const db = firebase.ref('/Temperature');
 
-class TutorialDataService {
+class TemperatureDataService {
 	getAll() {
 		return db;
 	}
@@ -28,4 +28,4 @@ class TutorialDataService {
 	}
 }
 
-export default new TutorialDataService();
+export default new TemperatureDataService();
